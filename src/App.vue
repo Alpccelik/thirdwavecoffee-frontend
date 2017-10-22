@@ -15,10 +15,14 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
+         <th>Region</th>
+        
       </tr>
       <tr v-for="coffee in coffees"> 
         <td>{{coffee.id}}</td>
         <td>{{coffee.name}}</td>
+        <td>{{coffee.region}}</td>
+
       </tr>
     </table>
   </div>
@@ -27,17 +31,20 @@
 <script>
 export default {
   name: 'app',
-   methods: {
   created:function() {
-    const vm = this;
-    vm.$http.get("http://localhost:8080/api/coffee")
-      .then((resp) => {
+    this.loadData();
+  },
+  methods: {
+    loadData:function()
+    {
+      const vm = this;
+      vm.$http.get("http://localhost:8080/api/coffee").then((resp) => {
         vm.coffees = resp.body;
       })
-  },
+    },
   sendata:function(){
     const vm = this;
-    var name =this.coffee.name;
+    var name =this.name;
     var region=this.region;
     var type=this.type;
     var method=this.method;
@@ -47,13 +54,13 @@ export default {
     var prepTime=this.prepTime;
     vm.$http.post("http://localhost:8080/api/coffee",{name:name,region:region,type:type,method:method,description:description,milk:milk,grindingType:grindingType,prepTime:prepTime}).
     then(function (resp){
+      this.loadData();
     },function(resp){});
 
+  
   }},
   data() {
     return {
-      coffees: [],
-      coffee:{
       name:'',
       region:'',
       type:'',
@@ -61,8 +68,10 @@ export default {
       description:'',
       milk:false,
       grindingType:'',
-      prepTime:''}
+      prepTime:'',
+      coffees: []
     }
+    
   }
 }
 </script>
