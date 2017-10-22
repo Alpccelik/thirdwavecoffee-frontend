@@ -2,13 +2,13 @@
   <div id="app">
     <div class="columns">
     <div class="column is-half is-offset-one-quarter ">
-        <b-field label="Name of Coffee"><b-input v-model="name" id="name"></b-input></b-field>
+        <b-field label="Name of Coffee" min="1" maxlength="32" ><b-input v-model="name" id="name"></b-input></b-field>
         <b-field label="Region of Coffee"><b-input v-model="region" id="region"></b-input></b-field>
-        <b-field label="Type of Coffee"><b-input v-model="type" id="type" ></b-input></b-field>
-        <b-field label="Method of Coffee"><b-input v-model="method" id="method" ></b-input></b-field>
-        <b-field label="Description of Coffee"><b-input v-model="description" id="description"maxlength="1024" type="textarea"></b-input>  </b-field>
+        <b-field label="Type of Coffee" ><b-input v-model="type" id="type" ></b-input></b-field>
+        <b-field label="Method of Coffee" ><b-input v-model="method" id="method" ></b-input></b-field>
+        <b-field label="Description of Coffee"min="1" maxlength="1024"><b-input v-model="description" id="description"maxlength="1024" type="textarea"></b-input>  </b-field>
         <div class="field"> <b-checkbox v-model="milk" id="milk">There is milk in this coffee</b-checkbox>  </div>
-        <b-field label="Grinding size  of Coffee Beans"><b-input  v-model="grindingType" id="grindingType"></b-input></b-field>
+        <b-field label="Grinding size  of Coffee Beans" ><b-input  v-model="grindingType" id="grindingType"></b-input></b-field>
         <b-field label="Preperation time of Coffee in Minutes"><b-input v-model="prepTime" id="prepTime"></b-input></b-field>
         <b-field> <p class="control">  <button class="button is-primary" v-on:click.prevent="sendata" > Send Coffee Recipes</button></p></b-field>
         </div>
