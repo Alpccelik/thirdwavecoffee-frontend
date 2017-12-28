@@ -9,10 +9,11 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue-resource": "^1.0.3",
     "buefy": "^0.5.4",
     "style-loader": "^0.19.0",
-    "vue": "^2.4.4"
+    "vee-validate": "^2.0.0-rc.19",
+    "vue": "^2.4.4",
+    "vue-resource": "^1.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
